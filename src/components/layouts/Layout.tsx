@@ -1,0 +1,27 @@
+'use client'
+
+import { ReactNode } from 'react'
+import { Navbar } from '@/components/sections/Navbar'
+import { Footer } from '@/components/sections/Footer'
+
+interface LayoutProps {
+    children: ReactNode
+    showNavbar?: boolean
+    showFooter?: boolean
+}
+
+export function Layout({
+    children,
+    showNavbar = true,
+    showFooter = true
+}: LayoutProps) {
+    return (
+        <div className="min-h-screen flex flex-col">
+            {showNavbar && <Navbar />}
+            <main className="flex-1">
+                {children}
+            </main>
+            {showFooter && <Footer />}
+        </div>
+    )
+}

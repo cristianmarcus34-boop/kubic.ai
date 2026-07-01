@@ -1,0 +1,6 @@
+{
+    "deno.enable": false,
+    "deno.unstable": [],
+    "js/ts.tsserver.maxMemory": 4096,
+    "js/ts.tsserver.experimental.enableProjectDiagnostics": true
+}
