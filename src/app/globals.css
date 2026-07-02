@@ -16,13 +16,165 @@
     --color-accent-gold: #F5B041;
 }
 
+/* ===== ANIMACIONES ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.7;
+    }
+}
+
+@keyframes ping {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    75%,
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== NUEVA ANIMACIÓN PARA EL REBOTE DEL RAYO ===== */
+@keyframes bounce-slow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* ===== UTILITY CLASSES ===== */
+.animate-fade-in-up {
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-ping {
+    animation: ping 1.5s ease-in-out infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+    animation: spin 1.5s linear infinite;
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 1.2s ease-in-out infinite;
+}
+
+/* ===== TEXT GRADIENT ===== */
+.text-gradient {
+    background-image: linear-gradient(to right, #2563eb, #8b5cf6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(26, 107, 212, 0.4);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(26, 107, 212, 0.6);
+}
+
+/* ===== BASE ===== */
 @layer base {
     body {
         background-color: #0a0a0f;
         color: #e8e8f0;
+        font-family: 'Inter', sans-serif;
+    }
+
+    ::selection {
+        background: var(--color-primary-500);
+        color: #ffffff;
+    }
+
+    *:focus-visible {
+        outline: 2px solid var(--color-primary-500);
+        outline-offset: 2px;
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 }
 
+/* ===== UTILITIES ===== */
 @layer utilities {
     .text-gradient {
         background-image: linear-gradient(to right, #2563eb, #8b5cf6);
@@ -45,5 +197,21 @@
         50% {
             transform: translateY(-20px);
         }
+    }
+
+    .glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 }

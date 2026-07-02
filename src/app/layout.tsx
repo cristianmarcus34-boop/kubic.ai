@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
+import { ChatBot } from '@/components/ui/ChatBot'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 })
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang="es" className={`${inter.variable} ${poppins.variable}`}>
       <body className="font-sans">
         {children}
+        <ChatBot />
       </body>
     </html>
   )
